@@ -23,7 +23,6 @@ class UserController extends Controller{
 
   public function createUser(Request $request){
       $User = User::create($request->all());
-
       return response()->json($User);
   }
 
@@ -31,17 +30,29 @@ class UserController extends Controller{
       $User = User::find($id);
       $User->delete();
 
-      return response()->json('deleted');
+      return response()->json(array('deleted' => true));
   }
 
   public function updateUser(Request $request,$id){
       $User = User::find($id);
-      $User->fk_user = $request->input('fk_user');
-      $User->name = $request->input('name');
-      $User->image = $request->input('image');
-      $User->save();
+      $User->update($request->all());
 
       return response()->json($User);
+  }
+
+  public function login(Request $request) {
+      $User = User::where('email', '=' , $request->input('email'))->first();
+
+      if(!$User) {
+          return response()->json(array('connected' => false));
+      }
+      if ($request->input('password') == $User->password) {
+          return response()->json(array('connected' => true));
+      }
+      else{
+          return response()->json(array('connected' => false));
+      }
+
   }
 }
 
