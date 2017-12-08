@@ -15,7 +15,8 @@ class Event extends Model
     'event_date_start',
     'event_date_end',
     'list_users',
-    'fk_id_user_owner'
+    'fk_id_user_owner',
+    'fk_id_user_sam'
   ];
 }
 
