@@ -75,6 +75,11 @@ $ curl -X GET http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bro
 
 ### Parameters
 * {id} : *(Integer)* id is required to retrieve an user with his id
+* username: *(String)* is required,  
+* email: *(String)* is required,  
+* password: *(String)* is required,
+* phone: *(String)* is required,
+* driver_licence: *(Boolean)* is required
 
 ```
 $ curl -X PUT http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros?{id} -d {"username":"HeadFox", "email":"example@gmail.com", "password":"azerty123", "phone", "0670504158", "driver_licence":1}
@@ -97,15 +102,19 @@ $ curl -X PUT http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bro
 
 
 ### **POST** Create an user
-`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros?{id}`
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros?{user_data}`
 
 ### Parameters
-  * {id} : *(Integer)* id is required to retrieve an user with his id
+* username: *(String)* is required,  
+* email: *(String)* is required,  
+* password: *(String)* is required,
+* phone: *(String)* is required,
+* driver_licence: *(Boolean)* is required  
 
 #### Exemple Request
 
 ```
-$ curl -X POST http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros?{id} -d {"username":"HeadFox", "email":"example@gmail.com", "password":"azerty123", "phone", "0670504158", "driver_licence":1}
+$ curl -X POST http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros -d {"username":"HeadFox", "email":"example@gmail.com", "password":"azerty123", "phone", "0670504158", "driver_licence":1}
 ```
 
 #### Response  
@@ -137,7 +146,27 @@ $ curl -X DELETE http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/
 #### Response  
 ```javascript
 {
-    true
+    delete: true
+}
+```
+
+### **POST** Check login
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros/login?{email}&{password}`
+
+### Parameters
+  * {email} : *(String)* Email is required to retrieve the user by email
+  * {password} : *(String)* Password is required to check if the user can login
+
+#### Exemple Request
+
+```
+$ curl -X POST http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros -d {"email":"example@gmail.com", "password":"azerty123"}
+```
+
+#### Response  
+```javascript
+{
+    connected: true|false
 }
 ```
 
@@ -157,6 +186,7 @@ $ curl -X DELETE http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/
     event_cp: {string},  
     list_users: {string}
     fk_id_user_owner: {int},
+    fk_id_user_sam: {int},
     created_at: {datetime},
     updated_at: {datetime},
 }
@@ -170,12 +200,13 @@ $ curl -X DELETE http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/
     event_cp: {string},  
     list_users: {string},
     fk_id_user_owner: {int},
+    fk_id_user_sam: {int},
     created_at: {datetime},
     updated_at: {datetime},
 }
 ```
 
-### **GET** Unique user
+### **GET** Unique event
 `URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge?{id}`
 
 ### Parameters
@@ -186,13 +217,14 @@ $ curl -X DELETE http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/
 {
     id: {int},  
     event_name: {string},  
-    event_date_start: {timestamp},
-    event_date_end: {timestamp},
+    event_date_start: {datetime},
+    event_date_end: {datetime},
     event_address: {string},  
     event_city: {string},  
     event_cp: {string},  
     list_users: {string}
     fk_id_user_owner: {int},
+    fk_id_user_sam: {int},
     created_at: {datetime},
     updated_at: {datetime},
 }
@@ -206,7 +238,7 @@ $ curl -X DELETE http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/
 
 #### Exemple Request
 ```
-$ curl -X PUT http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge?{id} -d {"event_name":"HeadFoxEvent", "event_date_start":"1512692042", "event_date_end":"1512692076", "event_address":"55 rue de la Course", "event_city", "Strasbourg", "event_cp":"67000", "list_users":"{id_user, ..., id_user}"}
+$ curl -X PUT http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge?{id} -d {"event_name":"HeadFoxEvent", "event_date_start":"2017-12-11", "event_date_end":"2017-12-09", "event_address":"55 rue de la Course", "event_city", "Strasbourg", "event_cp":"67000", "list_users":"{id_user, ..., id_user}"}
 ```
 
 #### Response  
@@ -214,18 +246,18 @@ $ curl -X PUT http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/mur
 {
     id: {int},  
     event_name: {string},  
-    event_date_start: {timestamp},
-    event_date_end: {timestamp},
+    event_date_start: {datetime},
+    event_date_end: {datetime},
     event_address: {string},  
     event_city: {string},  
     event_cp: {string},  
     list_users: {string}
     fk_id_user_owner: {int},
+    fk_id_user_sam: {int},
     created_at: {datetime},
     updated_at: {datetime},
 }
 ```
-
 
 ### **POST** Create an event
 `URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge?{id}`
@@ -236,7 +268,7 @@ $ curl -X PUT http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/mur
 
 #### Exemple Request
 ```
-$ curl -X POST http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge?{id} -d {"event_name":"HeadFoxEvent", "event_date_start":"1512692042", "event_date_end":"1512692076", "event_address":"55 rue de la Course", "event_city", "Strasbourg", "event_cp":"67000", "list_users":"{id_user, ..., id_user}"}
+$ curl -X POST http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge?{id} -d {"event_name":"HeadFoxEvent", "event_date_start":"2017-12-11", "event_date_end":"2017-12-09", "event_address":"55 rue de la Course", "event_city", "Strasbourg", "event_cp":"67000", "list_users":"{id_user, ..., id_user}"}
 ```
 
 #### Response  
@@ -244,13 +276,14 @@ $ curl -X POST http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/mu
 {
     id: {int},  
     event_name: {string},  
-    event_date_start: {timestamp},
-    event_date_end: {timestamp},
+    event_date_start: {datetime},
+    event_date_end: {datetime},
     event_address: {string},  
     event_city: {string},  
     event_cp: {string},  
     list_users: {string}
     fk_id_user_owner: {int},
+    fk_id_user_sam: {int},
     created_at: {datetime},
     updated_at: {datetime},
 }
@@ -265,6 +298,67 @@ $ curl -X POST http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/mu
 #### Response  
 ```javascript
 {
-    true
+    delete: true
+}
+```
+
+### **GET** List of current event
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge/cest-ce-soir?{id}`
+
+### Parameters
+  * {id} : *(Integer)* id is required to retrieve an event with the owner id
+
+#### Response  
+```javascript
+{
+    id: {int},  
+    event_name: {string},  
+    event_date_start: {datetime},
+    event_date_end: {datetime},
+    event_address: {string},  
+    event_city: {string},  
+    event_cp: {string},  
+    list_users: {string}
+    fk_id_user_owner: {int},
+    fk_id_user_sam: {int},
+    created_at: {datetime},
+    updated_at: {datetime},
+}
+```
+
+### **GET** List of passed event
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge/cest-trop-tard?{id}`
+
+### Parameters
+  * {id} : *(Integer)* id is required to retrieve an event with the owner id
+
+#### Response  
+```javascript
+{
+    id: {int},  
+    event_name: {string},  
+    event_date_start: {datetime},
+    event_date_end: {datetime},
+    event_address: {string},  
+    event_city: {string},  
+    event_cp: {string},  
+    list_users: {string}
+    fk_id_user_owner: {int},
+    fk_id_user_sam: {int},
+    created_at: {datetime},
+    updated_at: {datetime},
+}
+```
+
+### **POST** List of passed event
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge/ramene-tes-fesses`
+
+### Parameters
+  * {id} : *(Integer)* id is required to retrieve an event with the owner id
+
+#### Response  
+```javascript
+{
+    send: true|false,
 }
 ```
