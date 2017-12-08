@@ -43,7 +43,7 @@ Return a list of users
 
 
 ### **GET** Unique user
-`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros/{id}`
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros?{id}`
 
 ### Parameters
   * {id} : *(Integer)* id is required to retrieve an user with his id
@@ -51,7 +51,7 @@ Return a list of users
 #### Exemple Request
 
 ```
-$ curl -X GET http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros/{id}
+$ curl -X GET http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros?{id}
 ```
 
 #### Response  
@@ -69,7 +69,7 @@ $ curl -X GET http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bro
 ```
 
 ### **PUT** Update an user
-`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros/{id}`
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros?{id}`
 
 #### Exemple Request
 
@@ -77,7 +77,7 @@ $ curl -X GET http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bro
 * {id} : *(Integer)* id is required to retrieve an user with his id
 
 ```
-$ curl -X PUT http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros/{id} -d {"username":"HeadFox", "email":"example@gmail.com", "password":"azerty123", "phone", "0670504158", "driver_licence":1}
+$ curl -X PUT http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros?{id} -d {"username":"HeadFox", "email":"example@gmail.com", "password":"azerty123", "phone", "0670504158", "driver_licence":1}
 ```
 
 
@@ -97,7 +97,7 @@ $ curl -X PUT http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bro
 
 
 ### **POST** Create an user
-`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros/{id}`
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros?{id}`
 
 ### Parameters
   * {id} : *(Integer)* id is required to retrieve an user with his id
@@ -105,7 +105,7 @@ $ curl -X PUT http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bro
 #### Exemple Request
 
 ```
-$ curl -X POST http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros/{id} -d {"username":"HeadFox", "email":"example@gmail.com", "password":"azerty123", "phone", "0670504158", "driver_licence":1}
+$ curl -X POST http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros?{id} -d {"username":"HeadFox", "email":"example@gmail.com", "password":"azerty123", "phone", "0670504158", "driver_licence":1}
 ```
 
 #### Response  
@@ -123,7 +123,7 @@ $ curl -X POST http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/br
 ```
 
 ### **DELETE** An user
-`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros/{id}`
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros?{id}`
 
 ### Parameters
   * {id} : *(Integer)* id is required to retrieve an user with his id
@@ -131,7 +131,7 @@ $ curl -X POST http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/br
 #### Exemple Request
 
 ```
-$ curl -X DELETE http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros/{id}
+$ curl -X DELETE http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros?{id}
 ```
 
 #### Response  
@@ -176,7 +176,7 @@ $ curl -X DELETE http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/
 ```
 
 ### **GET** Unique user
-`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge/{id}`
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge?{id}`
 
 ### Parameters
   * {id} : *(Integer)* id is required to retrieve an event with its id
@@ -199,14 +199,14 @@ $ curl -X DELETE http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/
 ```
 
 ### **PUT** Update an event
-`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge/{id}`
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge?{id}`
 
 ### Parameters
   * {id} : *(Integer)* id is required to retrieve an event with its id
 
 #### Exemple Request
 ```
-$ curl -X PUT http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge/{id} -d {"event_name":"HeadFoxEvent", "event_date_start":"1512692042", "event_date_end":"1512692076", "event_address":"55 rue de la Course", "event_city", "Strasbourg", "event_cp":"67000", "list_users":"{id_user, ..., id_user}"}
+$ curl -X PUT http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge?{id} -d {"event_name":"HeadFoxEvent", "event_date_start":"1512692042", "event_date_end":"1512692076", "event_address":"55 rue de la Course", "event_city", "Strasbourg", "event_cp":"67000", "list_users":"{id_user, ..., id_user}"}
 ```
 
 #### Response  
@@ -228,7 +228,7 @@ $ curl -X PUT http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/mur
 
 
 ### **POST** Create an event
-`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge/{id}`
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge?{id}`
 
 ### Parameters
   * {id} : *(Integer)* id is required to retrieve an event with its id
@@ -236,7 +236,7 @@ $ curl -X PUT http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/mur
 
 #### Exemple Request
 ```
-$ curl -X POST http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge/{id} -d {"event_name":"HeadFoxEvent", "event_date_start":"1512692042", "event_date_end":"1512692076", "event_address":"55 rue de la Course", "event_city", "Strasbourg", "event_cp":"67000", "list_users":"{id_user, ..., id_user}"}
+$ curl -X POST http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge?{id} -d {"event_name":"HeadFoxEvent", "event_date_start":"1512692042", "event_date_end":"1512692076", "event_address":"55 rue de la Course", "event_city", "Strasbourg", "event_cp":"67000", "list_users":"{id_user, ..., id_user}"}
 ```
 
 #### Response  
@@ -257,7 +257,7 @@ $ curl -X POST http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/mu
 ```
 
 ### **DELETE** An event
-`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge/{id}`
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge?{id}`
 
 ### Parameters
   * {id} : *(Integer)* id is required to retrieve an event with its id
