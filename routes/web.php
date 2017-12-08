@@ -29,8 +29,10 @@ $router->group(['prefix' => 'v1'], function($router)
 
     $router->delete('bros/{id}','UserController@deleteUser');
 
+    $router->post('bros/login','UserController@login');
 
-    // Categories
+
+    // Events
     $router->get('murge','EventController@index');
 
     $router->get('murge/{id}','EventController@getEvent');
@@ -40,4 +42,14 @@ $router->group(['prefix' => 'v1'], function($router)
     $router->put('murge/{id}','EventController@updateEvent');
 
     $router->delete('murge/{id}','EventController@deleteEvent');
+
+    $router->delete('murge/{id}','EventController@deleteEvent');
+
+    $router->get('murge/cest-ce-soir/{id}','EventController@getCurrentEvent');
+
+    $router->get('murge/cest-trop-tard/{id}','EventController@getPassedEvent');
+
+    $router->post('murge/ramene-tes-fesses','EventController@sendEmailEvent');
+
+
 });
