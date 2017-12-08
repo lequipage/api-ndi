@@ -7,12 +7,12 @@ This is the documentation to use the API of the team **L'Équipage**
 There are all methods available on users
 
 ### **GET** All users
-`URL : http://api-ndi.lucienpeslier.xyz/bros`
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros`
 
 #### Exemple Request
 
 ```
-$ curl -X GET http://api-ndi.lucienpeslier.xyz/bros
+$ curl -X GET http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros
 ```
 
 #### Response  
@@ -43,7 +43,7 @@ Return a list of users
 
 
 ### **GET** Unique user
-`URL : http://api-ndi.lucienpeslier.xyz/bros/{id}`
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros/{id}`
 
 ### Parameters
   * {id} : *(Integer)* id is required to retrieve an user with his id
@@ -51,7 +51,7 @@ Return a list of users
 #### Exemple Request
 
 ```
-$ curl -X GET http://api-ndi.lucienpeslier.xyz/bros/{id}
+$ curl -X GET http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros/{id}
 ```
 
 #### Response  
@@ -69,7 +69,7 @@ $ curl -X GET http://api-ndi.lucienpeslier.xyz/bros/{id}
 ```
 
 ### **PUT** Update an user
-`URL : http://api-ndi.lucienpeslier.xyz/bros/{id}`
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros/{id}`
 
 #### Exemple Request
 
@@ -77,7 +77,7 @@ $ curl -X GET http://api-ndi.lucienpeslier.xyz/bros/{id}
 * {id} : *(Integer)* id is required to retrieve an user with his id
 
 ```
-$ curl -X PUT http://api-ndi.lucienpeslier.xyz/bros/{id} -d {"username":"HeadFox", "email":"example@gmail.com", "password":"azerty123", "phone", "0670504158"}
+$ curl -X PUT http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros/{id} -d {"username":"HeadFox", "email":"example@gmail.com", "password":"azerty123", "phone", "0670504158", "driver_licence":1}
 ```
 
 
@@ -97,7 +97,7 @@ $ curl -X PUT http://api-ndi.lucienpeslier.xyz/bros/{id} -d {"username":"HeadFox
 
 
 ### **POST** Create an user
-`URL : http://api-ndi.lucienpeslier.xyz/bros/{id}`
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros/{id}`
 
 ### Parameters
   * {id} : *(Integer)* id is required to retrieve an user with his id
@@ -105,7 +105,7 @@ $ curl -X PUT http://api-ndi.lucienpeslier.xyz/bros/{id} -d {"username":"HeadFox
 #### Exemple Request
 
 ```
-$ curl -X POST http://api-ndi.lucienpeslier.xyz/bros/{id} -d {"username":"HeadFox", "email":"example@gmail.com", "password":"azerty123", "phone", "0670504158"}
+$ curl -X POST http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros/{id} -d {"username":"HeadFox", "email":"example@gmail.com", "password":"azerty123", "phone", "0670504158", "driver_licence":1}
 ```
 
 #### Response  
@@ -123,7 +123,7 @@ $ curl -X POST http://api-ndi.lucienpeslier.xyz/bros/{id} -d {"username":"HeadFo
 ```
 
 ### **DELETE** An user
-`URL : http://api-ndi.lucienpeslier.xyz/bros/{id}`
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros/{id}`
 
 ### Parameters
   * {id} : *(Integer)* id is required to retrieve an user with his id
@@ -131,7 +131,7 @@ $ curl -X POST http://api-ndi.lucienpeslier.xyz/bros/{id} -d {"username":"HeadFo
 #### Exemple Request
 
 ```
-$ curl -X DELETE http://api-ndi.lucienpeslier.xyz/bros/{id}
+$ curl -X DELETE http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/bros/{id}
 ```
 
 #### Response  
@@ -144,7 +144,7 @@ $ curl -X DELETE http://api-ndi.lucienpeslier.xyz/bros/{id}
 ## CRUD for events
 
 ### **GET** All events
-`URL : http://api-ndi.lucienpeslier.xyz/event`
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge`
 
 #### Response  
 ```javascript
@@ -176,7 +176,7 @@ $ curl -X DELETE http://api-ndi.lucienpeslier.xyz/bros/{id}
 ```
 
 ### **GET** Unique user
-`URL : http://api-ndi.lucienpeslier.xyz/event/{id}`
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge/{id}`
 
 ### Parameters
   * {id} : *(Integer)* id is required to retrieve an event with its id
@@ -186,7 +186,8 @@ $ curl -X DELETE http://api-ndi.lucienpeslier.xyz/bros/{id}
 {
     id: {int},  
     event_name: {string},  
-    event_date: {string},
+    event_date_start: {timestamp},
+    event_date_end: {timestamp},
     event_address: {string},  
     event_city: {string},  
     event_cp: {string},  
@@ -198,21 +199,23 @@ $ curl -X DELETE http://api-ndi.lucienpeslier.xyz/bros/{id}
 ```
 
 ### **PUT** Update an event
-`URL : http://api-ndi.lucienpeslier.xyz/event/{id}`
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge/{id}`
 
 ### Parameters
   * {id} : *(Integer)* id is required to retrieve an event with its id
 
-  ```
-  $ curl -X PUT http://api-ndi.lucienpeslier.xyz/event/{id} -d {"event_name":"HeadFoxEvent", "event_date":"2017-12-31 22:00:00", "event_address":"55 rue de la Course", "event_city", "Strasbourg", "event_cp":"67000", "list_users":"{id_user, ..., id_user}"}
-  ```
+#### Exemple Request
+```
+$ curl -X PUT http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge/{id} -d {"event_name":"HeadFoxEvent", "event_date_start":"1512692042", "event_date_end":"1512692076", "event_address":"55 rue de la Course", "event_city", "Strasbourg", "event_cp":"67000", "list_users":"{id_user, ..., id_user}"}
+```
 
 #### Response  
 ```javascript
 {
     id: {int},  
     event_name: {string},  
-    event_date: {string},
+    event_date_start: {timestamp},
+    event_date_end: {timestamp},
     event_address: {string},  
     event_city: {string},  
     event_cp: {string},  
@@ -225,17 +228,24 @@ $ curl -X DELETE http://api-ndi.lucienpeslier.xyz/bros/{id}
 
 
 ### **POST** Create an event
-`URL : http://api-ndi.lucienpeslier.xyz/event/{id}`
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge/{id}`
 
 ### Parameters
   * {id} : *(Integer)* id is required to retrieve an event with its id
+
+
+#### Exemple Request
+```
+$ curl -X POST http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge/{id} -d {"event_name":"HeadFoxEvent", "event_date_start":"1512692042", "event_date_end":"1512692076", "event_address":"55 rue de la Course", "event_city", "Strasbourg", "event_cp":"67000", "list_users":"{id_user, ..., id_user}"}
+```
 
 #### Response  
 ```javascript
 {
     id: {int},  
     event_name: {string},  
-    event_date: {string},
+    event_date_start: {timestamp},
+    event_date_end: {timestamp},
     event_address: {string},  
     event_city: {string},  
     event_cp: {string},  
@@ -247,7 +257,7 @@ $ curl -X DELETE http://api-ndi.lucienpeslier.xyz/bros/{id}
 ```
 
 ### **DELETE** An event
-`URL : http://api-ndi.lucienpeslier.xyz/event/{id}`
+`URL : http://212.47.252.1/~purpleunikorn/api-ndi/public/index.php/v1/murge/{id}`
 
 ### Parameters
   * {id} : *(Integer)* id is required to retrieve an event with its id
