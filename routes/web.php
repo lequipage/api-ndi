@@ -12,5 +12,32 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return "hopla Api.v1";
+});
+
+
+$router->group(['prefix' => 'v1'], function($router)
+{
+    // Users
+    $router->get('bros','UserController@index');
+
+    $router->get('bros/{id}','UserController@getUser');
+
+    $router->post('bros','UserController@createUser');
+
+    $router->put('bros/{id}','UserController@updateUser');
+
+    $router->delete('bros/{id}','UserController@deleteUser');
+
+
+    // Categories
+    $router->get('murge','EventController@index');
+
+    $router->get('murge/{id}','EventController@getEvent');
+
+    $router->post('murge','EventController@createEvent');
+
+    $router->put('murge/{id}','EventController@updateEvent');
+
+    $router->delete('murge/{id}','EventController@deleteEvent');
 });
