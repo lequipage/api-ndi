@@ -70,8 +70,6 @@ class EventController extends Controller{
         // $fromUser = $request->input('fk_id_user_owner');
         $fromUser = "Truc";
 
-        mail($toEmail, 'Truc sujet', 'COntent');die;
-
         $fromMail = 'contact@choisis-ton-sam.fr';
         $boundary = str_replace(" ", "", date('l jS \of F Y h i s A'));
         $subjectMail = $fromUser." vous invite à sa prochaine murge, seras-tu le prochain Sam ?";
